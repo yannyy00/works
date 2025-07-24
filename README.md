@@ -62,11 +62,11 @@ The reliability of the model is determeined by the number of images within its t
 7. Set the NET and DATASET variables
 
      NET=models/works_m
-     DATASET=data/works_d
+     DATASET=data/project
 
 9. Run the model with a test image
 
-     imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/999.jpg output.jpg
+     imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/Creeper/986.jpg output.jpg
    
      imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/*test image name*.jpg *output file name*.jpg
 
