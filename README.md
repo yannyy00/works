@@ -13,49 +13,60 @@ The reliability of the model is determeined by the number of images within its t
 
 1. Navigate to your data folder
 
-   cd jetson-inference/python/training/classification/data
+     cd jetson-inference/python/training/classification/data
    
 3. Download the zip file of the images with the command below
-   wget -O work.zip --content-disposition -L --max-redirect=20 "https://www.dropbox.com/scl/fi/5neoaazgn53iuhgne5uk7/project.zip?rlkey=xkxn8kzzfmvpygiaybjn84yz9&st=diqvay9o&dl=1"
 
-4. Extract the files from the zip
-   unzip work.zip
+     wget -O work.zip --content-disposition -L --max-redirect=20 "https://www.dropbox.com/scl/fi/5neoaazgn53iuhgne5uk7/project.zip?rlkey=xkxn8kzzfmvpygiaybjn84yz9&st=diqvay9o&dl=1"
+
+5. Extract the files from the zip
+
+     unzip work.zip
 
 
 # Training
 
 1. Navigate into the jetson-inference folder
-    cd ~/jetson-inference
-   
-2. To begin setting up and training model, enter your computer's Docker container.
-    ./docker/run.sh
 
-3. Cd into your classification folder. If your machine contain these folders, create them then run the command
+     cd ~/jetson-inference
+   
+3. To begin setting up and training model, enter your computer's Docker container.
+
+     ./docker/run.sh
+
+5. Cd into your classification folder. If your machine contain these folders, create them then run the command
+
      cd python/training/classification
 
-4. Run the training script (Recommended epochs is 120)
+7. Run the training script (Recommended epochs is 120)
+
      python3 train.py --epochs=120 --model-dir=models/works_m data/works_d
    
    *The training will take approximately 40 minutes.
 
-6. Once completed, export the training to a file. The model should appear under jetson-inference/python/training/classification/models as "works_m"
+9. Once completed, export the training to a file. The model should appear under jetson-inference/python/training/classification/models as "works_m"
      python3 onnx_export.py --model-dir=models/works_m
 
 # Running
 1. Exit the docker if needed. You should return to ~/jetson-inferference
+
      exit
 
-2. Navigate back to nvidia@nvidia
+3. Navigate back to nvidia@nvidia
+
      cd~
 
-3. Cd into jetson-inference/python/training/classification.
+5. Cd into jetson-inference/python/training/classification.
+
      cd jetson-inference/python/training/classification
    
-4. Set the NET and DATASET variables
+7. Set the NET and DATASET variables
+
      NET=models/works_m
      DATASET=data/works_d
 
-5. Run the model with a test image
+9. Run the model with a test image
+
      imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/999.jpg output.jpg
    
      imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/*test image name*.jpg *output file name*.jpg
