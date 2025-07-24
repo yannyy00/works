@@ -12,12 +12,13 @@ The reliability of the model is determeined by the number of images within its t
 # Downloading images
 
 1. Navigate to your data folder
+
    cd jetson-inference/python/training/classification/data
    
-2. Download the zip file of the images with the command below
+3. Download the zip file of the images with the command below
    wget -O work.zip --content-disposition -L --max-redirect=20 "https://www.dropbox.com/scl/fi/5neoaazgn53iuhgne5uk7/project.zip?rlkey=xkxn8kzzfmvpygiaybjn84yz9&st=diqvay9o&dl=1"
 
-3. Extract the files from the zip
+4. Extract the files from the zip
    unzip work.zip
 
 
