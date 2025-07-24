@@ -1,6 +1,5 @@
-# Project Name
+# Poison Ivy/Virginia Creeper Identification
 
- Add short description of project here > 
  This project trains an model using ~1100 images of the species Viriginia Creeper and ~2100 images of the species Poison Ivy. When run with the image of either species, the model accurately determines the species at a 99% success rate.
 
 ## The Algorithm
