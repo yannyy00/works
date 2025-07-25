@@ -39,12 +39,12 @@ The reliability of the model is determeined by the number of images within its t
 
 7. Run the training script (Recommended epochs is 120)
 
-     python3 train.py --epochs=120 --model-dir=models/works_m data/works_d
+     python3 train.py --epochs=120 --model-dir=models/a_project data/project
    
    *The training will take approximately 40 minutes.
 
 9. Once completed, export the training to a file. The model should appear under jetson-inference/python/training/classification/models as "works_m"
-     python3 onnx_export.py --model-dir=models/works_m
+     python3 onnx_export.py --model-dir=models/a_project
 
 # Running
 1. Exit the docker if needed. You should return to ~/jetson-inferference
@@ -61,13 +61,15 @@ The reliability of the model is determeined by the number of images within its t
    
 7. Set the NET and DATASET variables
 
-     NET=models/works_m
+     NET=models/a_project
      DATASET=data/project
 
 9. Run the model with a test image
 
-     imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/Creeper/986.jpg output.jpg
-   
+     imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/Creeper/Ctest8.jpg output.jpg
+
+      OR
+
      imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/MyLabels.txt $DATASET/test/*test image name*.jpg *output file name*.jpg
 
    The terminal will report the result of the run, and a viewable output image should appear in jetson-inference/python/training/classification/
@@ -75,4 +77,4 @@ The reliability of the model is determeined by the number of images within its t
 
 
 
-[View a video explanation here](video link)er
+[View a video explanation here](https://youtu.be/F080bepTbSA)
